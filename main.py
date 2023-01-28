@@ -4,6 +4,7 @@ from graphic_arts.start_game_banner import run_screensaver
 
 DEFAULT_ATTACK = 5
 DEFAULT_DEFENCE = 10
+DEFAULT_STAMINA = 80
 
 
 class Character:
@@ -34,15 +35,30 @@ class Character:
 
 
 class Warrior(Character):
-    pass
+    BRIEF_DESC_CHAR_CLASS = (' дерзкий воин ближнего боя. '
+                             'Сильный, выносливый и отважный')
+    RANGE_VALUE_ATTACK = (3, 5)
+    RANGE_VALUE_DEFENCE = (5, 10)
+    SPECIAL_BUFF = DEFAULT_STAMINA + 25
+    SPECIAL_SKILL = 'Выносливость'
 
 
 class Mage(Character):
-    pass
+    BRIEF_DESC_CHAR_CLASS = (' находчивый воин дальнего боя. '
+                             'Обладает высоким интеллектом')
+    RANGE_VALUE_ATTACK = (5, 10)
+    RANGE_VALUE_DEFENCE = (-2, 2)
+    SPECIAL_BUFF = DEFAULT_ATTACK + 40
+    SPECIAL_SKILL = 'Атака'
 
 
 class Healer(Character):
-    pass
+    BRIEF_DESC_CHAR_CLASS = (' могущественный заклинатель. '
+                             'Черпает силы из природы, веры и духов')
+    RANGE_VALUE_ATTACK = (-3, -1)
+    RANGE_VALUE_DEFENCE = (2, 5)
+    SPECIAL_BUFF = DEFAULT_DEFENCE + 30
+    SPECIAL_SKILL = 'Защита'
 
 
 def attack(char_name: str, char_class: str) -> str:
